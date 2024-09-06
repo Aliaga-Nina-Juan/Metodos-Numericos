@@ -1,3 +1,2 @@
 Metodos-Númericos
-Apellido: Aliaga Nina 
-Nombre: Juan Diego 
+Nombre: Aliaga Nina Juan Diego 

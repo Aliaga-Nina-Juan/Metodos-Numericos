@@ -1,0 +1,28 @@
+import numpy as np
+import scipy.linalg
+
+# Definimos la matriz de coeficientes A y el vector de términos independientes b
+A = np.array([[10, 2, -1],
+              [-3, -6, 2],
+              [1, 1, 5]])
+
+b = np.array([27, -61.5, -21.5])
+
+# Factorización LU
+P, L, U = scipy.linalg.lu(A)
+
+# Imprimimos las matrices L y U
+print("Matriz L:")
+print(L)
+print("\nMatriz U:")
+print(U)
+
+# Resolver L*y = b
+y = np.linalg.solve(L, np.dot(P, b))
+
+# Resolver U*x = y
+x = np.linalg.solve(U, y)
+
+# Mostramos la solución del sistema
+print("\nSolución del sistema (x):")
+print(x)

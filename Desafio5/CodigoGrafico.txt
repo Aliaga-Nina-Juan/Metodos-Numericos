@@ -1,0 +1,36 @@
+% Definir la matriz A y el vector b
+A = [1.0001, 1.0000; 
+     1.0000, 1.0000];
+b = [2; 1.98];
+
+% Resolver el sistema de ecuaciones A*x = b
+x = A\b;
+
+% Mostrar la solución
+disp('Solución del sistema:')
+disp(x)
+
+% Crear el espacio de las rectas
+x_vals = linspace(0, 2, 100); % Valores de x para graficar
+
+% Ecuaciones de las rectas
+y1 = (b(1) - A(1,1)*x_vals) / A(1,2);
+y2 = (b(2) - A(2,1)*x_vals) / A(2,2);
+
+% Graficar las rectas
+plot(x_vals, y1, 'r', 'LineWidth', 2); % Primera ecuación
+hold on;
+plot(x_vals, y2, 'b', 'LineWidth', 2); % Segunda ecuación
+
+% Añadir leyendas y etiquetas
+legend('Ecuación 1: 1.0001x + 1.0000y = 2', 'Ecuación 2: 1.0000x + 1.0000y = 1.98');
+xlabel('x');
+ylabel('y');
+title('Gráfico del sistema de ecuaciones lineales');
+grid on;
+
+% Marcar la solución en el gráfico
+plot(x(1), x(2), 'ko', 'MarkerSize', 10, 'MarkerFaceColor', 'g');
+text(x(1), x(2), sprintf('  Solución (%.4f, %.4f)', x(1), x(2)));
+
+hold off;
